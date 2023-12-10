@@ -31,5 +31,5 @@ class WindowsContainer(Container):
         self,
         gpu_ids: Optional[List[int]] = None,
     ) -> List[str]:
-        assert gpu_ids is None, "Windows does not support gpu ids"
+        assert gpu_ids is None or gpu_ids == [], "Windows does not support gpu ids"
         return []

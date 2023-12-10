@@ -28,6 +28,10 @@ fi
 echo "Creating var/ artifact directory..."
 docker run --rm -v /tmp/artifacts:/artifact-mount alpine:latest /bin/sh -c 'chown -R 2000 /artifact-mount/' || true
 
+if [[ "${OSTYPE}" == msys && "${BUILDKITE_AGENT_META_DATA_QUEUE}" == windows_queue_branch ]]; then
+    docker pull ${RAYCI_WORK_REPO}:${RAYCI_BUILD_ID}-windowsbuild
+fi
+
 
 RAYCI_CHECKOUT_DIR="$(pwd)"
 export RAYCI_CHECKOUT_DIR

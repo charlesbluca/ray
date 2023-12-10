@@ -17,3 +17,4 @@ pip install -U --ignore-installed  \
 
 # Clean up temp files to speed up docker build
 pip cache purge
+powershell ci/ray_ci/windows/cleanup.ps1
